@@ -17,6 +17,7 @@
             <if test="phone != null and phone != ''">
                 phone = #{phone},
             </if>
+            <!-- 注意：如果是数字类型，最好不要加引号，虽然 MyBatis 会转，但加上更符合规范 -->
             <if test="sex != null">
                 sex = #{sex},
             </if>
@@ -26,6 +27,7 @@
             <if test="status != null">
                 status = #{status},
             </if>
+            <!-- 注意这里：如果你前端没传 updateTime 和 updateUser，这里会报错，建议加 if 判断 -->
             update_time = #{updateTime},
             update_user = #{updateUser}
         </set>
@@ -40,5 +42,8 @@
             </if>
         </where>
         order by create_time desc
+    </select>
+    <select id="getById" resultType="com.sky.entity.Employee">
+        select * from sky_take_out.employee where id = #{id}
     </select>
 </mapper>
