@@ -3,6 +3,8 @@ package com.sky.mapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.List;
+
 @Mapper
 public interface SetmealMapper {
 
@@ -14,4 +16,5 @@ public interface SetmealMapper {
     @Select("select count(id) from sky_take_out.setmeal where category_id = #{categoryId}")
     Integer countByCategoryId(Long id);
 
+    List<Long> getSetmealIdsByDishId(List<Long> ids);
 }
