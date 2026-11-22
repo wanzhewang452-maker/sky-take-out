@@ -53,11 +53,12 @@ public class AliOssUtil {
         }
 
         //文件访问路径规则 https://BucketName.Endpoint/ObjectName
+        String endpointHost = endpoint.trim().replaceFirst("(?i)^https?://", "").replaceAll("/+$", "");
         StringBuilder stringBuilder = new StringBuilder("https://");
         stringBuilder
                 .append(bucketName)
                 .append(".")
-                .append(endpoint)
+                .append(endpointHost)
                 .append("/")
                 .append(objectName);
 
