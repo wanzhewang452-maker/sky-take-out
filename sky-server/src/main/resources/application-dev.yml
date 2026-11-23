@@ -1,7 +1,10 @@
 spring:
   config:
     import: optional:classpath:oss-local.yml
-
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
 sky:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
